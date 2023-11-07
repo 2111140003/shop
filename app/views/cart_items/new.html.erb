@@ -1,0 +1,16 @@
+<h1>Add to Cart</h1>
+
+<%= form_for [@cart, @cart_item] do |f| %>
+  <div class="field">
+    <%= f.label :qty %>
+    <%= f.number_field :qty, min: 1, max: 999, value: 1 %>
+  </div>
+
+  <%= f.hidden_field :product_id, value: @product.id %>
+
+  <div class="actions">
+    <%= f.submit "Add to Cart" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", products_path %>
